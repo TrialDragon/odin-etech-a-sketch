@@ -60,7 +60,7 @@ resetButton.addEventListener('click', e =>
 	})
 
 
-const body = document.querySelector('body');
-body.appendChild(cubeGrid);
+const content = document.querySelector('section.content');
+content.appendChild(cubeGrid);
 
 initializeGrid(currentCubeAmount);
