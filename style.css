@@ -1,7 +1,7 @@
 .grid {
 	display: flex;
-	max-width: 30vw;
-	max-height: 30vw;
+	max-width: 800px;
+	max-height: 800px;
 	flex-flow: row wrap;
 }
 
