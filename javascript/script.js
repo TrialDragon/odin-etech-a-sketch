@@ -4,6 +4,17 @@ let cubeGridStyle = window.getComputedStyle(cubeGrid);
 
 let currentCubeAmount = 16;
 
+function randomColor()
+{
+	let rgb = [];
+	for(let loop = 0; loop < 3; ++loop)
+	{
+		rgb[loop] = Math.floor((Math.random() * 255)).toString(16);
+	}
+
+	return `#${rgb[0]}${rgb[1]}${rgb[2]}`;
+}
+
 function letterFilter (character)
 {
 	return !isNaN(character);
@@ -33,7 +44,7 @@ function initializeGrid(cubeAmount)
 			cubeDiv.style.height = maxHeight / cubeAmount;
 			cubeDiv.addEventListener('mouseover', e =>
 				{
-					e.target.classList.add('hovered');
+					e.target.style.backgroundColor = randomColor();
 				})
 			cubeGrid.appendChild(cubeDiv);
 
