@@ -11,3 +11,7 @@
 	min-height: 10px;
 	border: solid black 2px;
 }
+
+.cube.hovered {
+	background-color: blue;
+}
