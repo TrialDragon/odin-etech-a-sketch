@@ -2,6 +2,8 @@ const cubeGrid = document.createElement('div');
 cubeGrid.classList.add('grid');
 let cubeGridStyle = window.getComputedStyle(cubeGrid);
 
+let currentCubeAmount = 16;
+
 function letterFilter (character)
 {
 	return !isNaN(character);
@@ -34,6 +36,8 @@ function initializeGrid(cubeAmount)
 					e.target.classList.add('hovered');
 				})
 			cubeGrid.appendChild(cubeDiv);
+
+			currentCubeAmount = cubeAmount;
 		}
 	}
 }
@@ -42,6 +46,7 @@ const resetButton = document.querySelector('button.reset');
 resetButton.addEventListener('click', e =>
 	{
 		let newCubeAmount = +prompt('How many cubes per side should the new grid have? 1 -- 100; 0 means do not change');
+		newCubeAmount = newCubeAmount == 0 ? currentCubeAmount : Math.max(1, Math.min(100, newCubeAmount));
 		initializeGrid(newCubeAmount);
 	})
 
@@ -49,4 +54,4 @@ resetButton.addEventListener('click', e =>
 const body = document.querySelector('body');
 body.appendChild(cubeGrid);
 
-initializeGrid(16);
+initializeGrid(currentCubeAmount);
