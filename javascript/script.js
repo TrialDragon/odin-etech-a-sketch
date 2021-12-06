@@ -6,13 +6,8 @@ let currentCubeAmount = 16;
 
 function randomColor()
 {
-	let rgb = [];
-	for(let loop = 0; loop < 3; ++loop)
-	{
-		rgb[loop] = Math.floor((Math.random() * 255)).toString(16);
-	}
-
-	return `#${rgb[0]}${rgb[1]}${rgb[2]}`;
+	let hsl = `hsl(${Math.floor(Math.random()*360)}, ${Math.floor(Math.random()*100)}%, 100%`;
+	return hsl;
 }
 
 function letterFilter (character)
@@ -45,6 +40,7 @@ function initializeGrid(cubeAmount)
 			cubeDiv.addEventListener('mouseover', e =>
 				{
 					e.target.style.backgroundColor = randomColor();
+					console.log(e.target.style.backgroundColor);
 				})
 			cubeGrid.appendChild(cubeDiv);
 
