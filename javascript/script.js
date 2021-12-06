@@ -4,9 +4,9 @@ let cubeGridStyle = window.getComputedStyle(cubeGrid);
 
 let currentCubeAmount = 16;
 
-function randomColor()
+function randomColor(light)
 {
-	let hsl = `hsl(${Math.floor(Math.random()*360)}, ${Math.floor(Math.random()*100)}%, 100%`;
+	let hsl = `hsl(${Math.floor(Math.random()*360)}, ${Math.floor(Math.random()*100)}%, ${light}%`;
 	return hsl;
 }
 
@@ -37,10 +37,12 @@ function initializeGrid(cubeAmount)
 			cubeDiv.style.width = maxWidth / cubeAmount; 
 			let maxHeight = Array.from(cubeGridStyle.getPropertyValue('max-height')).filter(letterFilter).join('');
 			cubeDiv.style.height = maxHeight / cubeAmount;
+			cubeDiv.setAttribute('data-pass', 1);
 			cubeDiv.addEventListener('mouseover', e =>
 				{
-					e.target.style.backgroundColor = randomColor();
-					console.log(e.target.style.backgroundColor);
+					let targetPassThrough = e.target.getAttribute('data-pass');
+					e.target.style.backgroundColor = randomColor(Math.max(0,100-(targetPassThrough * 10)));
+					 e.target.setAttribute('data-pass', +targetPassThrough + (targetPassThrough < 10 ? 1 : 0));
 				})
 			cubeGrid.appendChild(cubeDiv);
 
