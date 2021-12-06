@@ -1,0 +1,13 @@
+.grid {
+	display: flex;
+	max-width: 160px;
+	flex-flow: row wrap;
+
+}
+
+.cube {
+	box-sizing: border-box;
+	min-width: 10px;
+	min-height: 10px;
+	border: solid black 2px;
+}
