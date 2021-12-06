@@ -2,6 +2,8 @@ const cubeGrid = document.createElement('div');
 cubeGrid.classList.add('grid');
 const cubeGridStyle = window.getComputedStyle(cubeGrid);
 
+const contentHeader = document.querySelector('section.content .size');
+
 let currentCubeAmount = 16;
 
 function randomColor(light)
@@ -26,6 +28,8 @@ function deleteGridChildren()
 function initializeGrid(cubeAmount)
 {
 	deleteGridChildren();
+
+	contentHeader.textContent = `${cubeAmount} X ${cubeAmount}`;
 
 	for(let loop = 0; loop < cubeAmount; ++loop)
 	{
@@ -59,8 +63,7 @@ resetButton.addEventListener('click', e =>
 		initializeGrid(newCubeAmount);
 	})
 
-
-const content = document.querySelector('section.content');
+const content = document.querySelector('section.content .button-and-grid');
 content.appendChild(cubeGrid);
 
 initializeGrid(currentCubeAmount);
