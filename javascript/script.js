@@ -1,28 +1,52 @@
-const gridContainer = document.createElement('div');
-gridContainer.classList.add('grid');
-for(let loop = 0; loop < 16; ++loop)
+const cubeGrid = document.createElement('div');
+cubeGrid.classList.add('grid');
+let cubeGridStyle = window.getComputedStyle(cubeGrid);
+
+function letterFilter (character)
 {
-	for(let innerLoop = 0; innerLoop < 16; ++innerLoop)
+	return !isNaN(character);
+}
+
+function deleteGridChildren()
+{
+	Array.from(cubeGrid.children).forEach(child =>
+		{
+			cubeGrid.removeChild(child);
+		})
+}
+
+function initializeGrid(cubeAmount)
+{
+	deleteGridChildren();
+
+	for(let loop = 0; loop < cubeAmount; ++loop)
 	{
-		let cubeDiv = document.createElement('div');
-		cubeDiv.classList.add('cube');
-		cubeDiv.addEventListener('mouseover', e =>
-			{
-				e.target.classList.add('hovered');
-			})
-		gridContainer.appendChild(cubeDiv);
+		for(let innerLoop = 0; innerLoop < cubeAmount; ++innerLoop)
+		{
+			let cubeDiv = document.createElement('div');
+			cubeDiv.classList.add('cube');
+			let maxWidth = Array.from(cubeGridStyle.getPropertyValue('max-width')).filter(letterFilter).join('');
+			cubeDiv.style.width = maxWidth / cubeAmount; 
+			let maxHeight = Array.from(cubeGridStyle.getPropertyValue('max-height')).filter(letterFilter).join('');
+			cubeDiv.style.height = maxHeight / cubeAmount;
+			cubeDiv.addEventListener('mouseover', e =>
+				{
+					e.target.classList.add('hovered');
+				})
+			cubeGrid.appendChild(cubeDiv);
+		}
 	}
 }
 
 const resetButton = document.querySelector('button.reset');
 resetButton.addEventListener('click', e =>
 	{
-		let cubes = gridContainer.children;
-		for(let loop = 0; loop < cubes.length; ++loop)
-		{
-			cubes[loop].classList.remove('hovered');
-		}
+		let newCubeAmount = +prompt('How many cubes per side should the new grid have? 1 -- 100; 0 means do not change');
+		initializeGrid(newCubeAmount);
 	})
 
+
 const body = document.querySelector('body');
-body.appendChild(gridContainer);
+body.appendChild(cubeGrid);
+
+initializeGrid(16);
