@@ -1,6 +1,6 @@
 const cubeGrid = document.createElement('div');
 cubeGrid.classList.add('grid');
-let cubeGridStyle = window.getComputedStyle(cubeGrid);
+const cubeGridStyle = window.getComputedStyle(cubeGrid);
 
 let currentCubeAmount = 16;
 
@@ -31,16 +31,16 @@ function initializeGrid(cubeAmount)
 	{
 		for(let innerLoop = 0; innerLoop < cubeAmount; ++innerLoop)
 		{
-			let cubeDiv = document.createElement('div');
+			const cubeDiv = document.createElement('div');
 			cubeDiv.classList.add('cube');
-			let maxWidth = Array.from(cubeGridStyle.getPropertyValue('max-width')).filter(letterFilter).join('');
+			const maxWidth = Array.from(cubeGridStyle.getPropertyValue('max-width')).filter(letterFilter).join('');
 			cubeDiv.style.width = maxWidth / cubeAmount; 
-			let maxHeight = Array.from(cubeGridStyle.getPropertyValue('max-height')).filter(letterFilter).join('');
+			const maxHeight = Array.from(cubeGridStyle.getPropertyValue('max-height')).filter(letterFilter).join('');
 			cubeDiv.style.height = maxHeight / cubeAmount;
 			cubeDiv.setAttribute('data-pass', 1);
 			cubeDiv.addEventListener('mouseover', e =>
 				{
-					let targetPassThrough = e.target.getAttribute('data-pass');
+					const targetPassThrough = e.target.getAttribute('data-pass');
 					e.target.style.backgroundColor = randomColor(Math.max(0,100-(targetPassThrough * 10)));
 					 e.target.setAttribute('data-pass', +targetPassThrough + (targetPassThrough < 10 ? 1 : 0));
 				})
