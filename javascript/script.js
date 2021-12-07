@@ -59,7 +59,7 @@ const resetButton = document.querySelector('button.reset');
 resetButton.addEventListener('click', e =>
 	{
 		let newCubeAmount = +prompt('How many cubes per side should the new grid have? 1 -- 100; 0 means do not change', 0);
-		newCubeAmount = newCubeAmount == 0 || isNan(newCubeAmount)? currentCubeAmount : Math.max(1, Math.min(100, newCubeAmount));
+		newCubeAmount = newCubeAmount == 0 || isNaN(newCubeAmount)? currentCubeAmount : Math.max(1, Math.min(100, newCubeAmount));
 		initializeGrid(newCubeAmount);
 	})
 
