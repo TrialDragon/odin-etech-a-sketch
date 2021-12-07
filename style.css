@@ -42,6 +42,7 @@ header h1 {
 	margin: 0;
 	border-radius: 0 0 16px 16px;
 	box-shadow: 0 4px var(--accent-color-with-alpha);
+	text-shadow: -2px -2px var(--accent-color-with-alpha);
 }
 
 .content {
@@ -58,6 +59,7 @@ header h1 {
 	border-radius: 20px 10px;
 	padding: 6px;
 	box-shadow: -2px 4px var(--main-color);
+	text-shadow: 1px 1px var(--main-color-with-alpha);
 }
 
 .content .button-and-grid {
@@ -79,6 +81,7 @@ button.reset {
 	border-radius: 3px;
 	padding: 2px 32px;
 	box-shadow: -2px 4px var(--main-color-with-alpha);
+	text-shadow: 1px 1px var(--main-color-with-alpha);
 }
 
 button.reset:hover {
