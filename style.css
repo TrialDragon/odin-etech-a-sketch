@@ -100,7 +100,7 @@ footer p {
 	max-width: 800px;
 	max-height: 800px;
 	flex-flow: row wrap;
-	border: var(--accent-color) 1px dashed;
+	border: var(--accent-color) 4px dashed;
 	background-color: var(--white);
 }
 
