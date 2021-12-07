@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Modak&family=Prompt:wght@100;200;300;400;500;600;700;800;900&family=Readex+Pro&display=swap');
 
 html {
-	--main-color: grey;
-	--accent-color: lightgrey;
-	--white: white;
+	--main-color: #b11fe8;
+	--accent-color: #ffdc18; 
+	--white: #ffffff;
 	--light-grey: #fafafa;
 	--dark-grey: #453f4a;
 
