@@ -2,8 +2,9 @@
 
 html {
 	--main-color: #b11fe8;
-	--main-color-with-accents: #b11fe8cc;
+	--main-color-with-alpha: #b11fe8cc;
 	--accent-color: #ffdc18; 
+	--darker-accent-color: #ddba07;
 	--accent-color-with-alpha: #ffdc18cc;
 	--teritary-color: #e12782;
 	--white: #ffffff;
@@ -77,7 +78,11 @@ button.reset {
 	border: none;
 	border-radius: 3px;
 	padding: 2px 32px;
-	box-shadow: -2px 4px var(--main-color-with-accents);
+	box-shadow: -2px 4px var(--main-color-with-alpha);
+}
+
+button.reset:hover {
+	background-color: var(--darker-accent-color);
 }
 
 footer {
